@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "test": "node scripts/test-lang-cache.js",
     "analyze": "cross-env ANALYZE=true npm run build"
   },
   "dependencies": {
