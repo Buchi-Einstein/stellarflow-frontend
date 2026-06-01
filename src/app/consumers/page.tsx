@@ -1,22 +1,21 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
-import {
-  Users,
-  Key,
-  Layers,
-  CreditCard,
-  Plus,
-  ExternalLink,
-  CheckCircle2,
-  RefreshCcw,
-  Eye,
-  EyeOff,
-  Copy,
-} from "lucide-react";
-import { useTransformedCustomAddressField } from "@/app/hooks/useTransformedData";
-import { useDebounce } from "@/app/hooks/useDebounce";
-import { ConsumerSearchInput } from "@/app/components/ConsumerSearchInput";
+import React, { useState, useMemo } from 'react';
+import { 
+  Users, 
+  Key, 
+  Layers, 
+  CreditCard, 
+  Plus, 
+  Search, 
+  ExternalLink, 
+  CheckCircle2, 
+  RefreshCcw, 
+  Eye, 
+  EyeOff, 
+  Copy 
+} from 'lucide-react';
+import { withShortenedAddressField } from '@/utils/addressUtils';
 
 // --- Types ---
 interface Consumer {
@@ -148,7 +147,7 @@ export default function ConsumersPage() {
       {/* --- API Gateway & Credentials Panel --- */}
       <div className="bg-[#161b22] border border-gray-800 rounded-xl p-6 mb-8">
         <h2 className="text-lg font-semibold mb-4 flex items-center gap-2">
-          <Key size={18} className="text-yellow-400" />
+          <Icon id={ICON_IDS.key} size={18} className="text-yellow-400" />
           Global Gateway Credentials
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -176,7 +175,7 @@ export default function ConsumersPage() {
                   onClick={() => setShowSecret(!showSecret)}
                   className="p-1 text-gray-500 hover:text-gray-300"
                 >
-                  {showSecret ? <EyeOff size={16} /> : <Eye size={16} />}
+                  {showSecret ? <Icon id={ICON_IDS.eyeOff} size={16} /> : <Icon id={ICON_IDS.eye} size={16} />}
                 </button>
                 <button
                   onClick={handleCopy}
@@ -200,7 +199,7 @@ export default function ConsumersPage() {
         <div className="p-4 border-b border-gray-800 flex flex-col md:flex-row justify-between gap-4">
           <ConsumerSearchInput onSearchChange={setSearchTerm} />
           <button className="p-2 bg-[#0d1117] hover:bg-gray-800 rounded-md border border-gray-700 text-gray-400 self-end md:self-auto">
-            <RefreshCcw size={16} />
+            <Icon id={ICON_IDS.refreshCcw} size={16} />
           </button>
         </div>
 
