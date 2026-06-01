@@ -5,6 +5,7 @@ import "./globals.css";
 import { ThemeProvider } from "./components/ThemeProvider";
 import { ProgressBarProvider } from "./components/TopLoadingBar";
 import { UserProvider } from "./components/providers/UserProvider";
+import { WalletProvider } from "./components/providers/WalletProvider";
 import Script from "next/script";
 import {SocketProvider} from "./components/providers/SocketProvider";
 
@@ -72,9 +73,11 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <UserProvider>
-            <ProgressBarProvider>
-              {children}
-            </ProgressBarProvider>
+            <WalletProvider>
+              <ProgressBarProvider>
+                {children}
+              </ProgressBarProvider>
+            </WalletProvider>
           </UserProvider>
         </ThemeProvider>
       </body>
